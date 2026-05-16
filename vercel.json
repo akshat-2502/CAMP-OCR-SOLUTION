@@ -32,9 +32,9 @@
     },
     {
       "src": "/(.*)",
-<<<<<<< HEAD
+
       "dest": "/dist/index.html"
-=======
+
       "dest": "/dist/$1"
     }
   ],
@@ -43,7 +43,7 @@
     {
       "source": "/(.*)",
       "destination": "/dist/index.html"
->>>>>>> a1d8b4e0c0efa975e9c5d975a0e2fc17e79a2815
+
     }
   ]
 }
