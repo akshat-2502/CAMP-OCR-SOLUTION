@@ -23,7 +23,7 @@
       "dest": "/dist/$1"
     }
   ],
-  "buildOutputDirectory": "dist",
+  
   "rewrites": [
     {
       "source": "/(.*)",
