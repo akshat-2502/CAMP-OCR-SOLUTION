@@ -1,4 +1,5 @@
 {
+  "version": 3,
   "buildCommand": "npm run build",
   "devCommand": "npm run dev",
   "installCommand": "npm install",
@@ -6,32 +7,32 @@
   "env": {
     "NODE_ENV": "production"
   },
-  "functions": {
-    "server.ts": {
-      "runtime": "nodejs20.x",
-      "memory": 1024,
-      "maxDuration": 60
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build"
+    },
+    {
+      "src": "server.ts",
+      "use": "@vercel/node",
+      "config": {
+        "runtime": "nodejs20.x",
+        "memory": 1024,
+        "maxDuration": 60
+      }
     }
-  },
+  ],
   "routes": [
     {
+      "handle": "filesystem"
+    },
+    {
       "src": "/api/(.*)",
-      "dest": "/server.ts",
-      "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"]
+      "dest": "/server.ts"
     },
     {
       "src": "/(.*)",
-      "dest": "/dist/$1"
-    }
-  ],
-<<<<<<< HEAD
-=======
-  
->>>>>>> ac8f6442e987da18958c2cf705f1ce0783d085a3
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/dist/index.html"
+      "dest": "/dist/index.html"
     }
   ]
 }
